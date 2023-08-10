@@ -1,0 +1,46 @@
+div.layout-container {
+    display: grid;
+    grid-template-areas: 
+    'vert board'
+    'vert hor';
+}
+
+div.board {
+    grid-area: board;
+    display: grid;
+    grid-template-columns: repeat(8, 75px);
+    grid-template-rows: repeat(8, 75px);
+    height: 600px;
+    width: 600px;
+}
+
+div.vert-coor-container {
+    display: flex;
+    grid-area: vert;
+    flex-direction: column;
+    height: 600px;
+}
+
+span.vert-coor {
+    height: 75px;
+    color: #eeeed2;
+    line-height: 75px;
+    text-align: center;
+    padding-right: 10px;
+}
+
+div.hor-coor-container {
+    grid-area: hor;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 600px;
+    color: #eeeed2;
+}
+
+span.hor-coor {
+    width: 75px;
+    text-align: center;
+    padding-top: 10px;
+}
+
