@@ -21,11 +21,10 @@ import Coordinates from "../Coordinates/Coordinates"
 import { useEffect, useState } from "react";
 
 export default function ChessBoard() {
-  const [board, setBoard] = useState([]);
   const horizontalCoordinates = ["a", "b", "c", "d", "e", "f", "g", "h"];
   const verticalCoordinates = ["8", "7", "6", "5", "4", "3", "2", "1"];
 
-  useEffect(() => {
+  const [board, setBoard] = useState(() => {
     let loadedBoard = []
 
     for (let i = 0; i < verticalCoordinates.length; i++) {
@@ -37,8 +36,12 @@ export default function ChessBoard() {
         }
     }
 
-    setBoard(loadedBoard);
-  }, [])
+    return loadedBoard;
+  });
+
+  useEffect(() => {
+    console.log("Board Changed");
+  })
 
   function handlePieces(x, y) {
     let pieceType;

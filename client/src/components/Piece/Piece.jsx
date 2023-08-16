@@ -5,9 +5,6 @@ import './Piece.css'
 export default function Piece({ type, startingCoordinate }) {
     const [currentCoordinate, setCurrentCoordinate] = useState(startingCoordinate)
 
-    
-
-
     const handleDragStart = (event) => {
         event.dataTransfer.setData("pieceId", event.target.id)
         event.dataTransfer.setData("dragFrom", currentCoordinate)

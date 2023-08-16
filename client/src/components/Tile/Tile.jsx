@@ -5,9 +5,13 @@ import { useEffect, useState } from 'react'
 export default function Tile({ color, coordinate, piece }) {
     const [isOccupied, setOccupied] = useState(false);
 
+    const [currentPiece, setCurrentPiece] = useState(); 
+
     useEffect(() => {
         if (piece) {
             setOccupied(true);
+        } else {
+            setOccupied(false);
         }
     }, [])
 
@@ -22,8 +26,6 @@ export default function Tile({ color, coordinate, piece }) {
         const pieceId = event.dataTransfer.getData("pieceId");
         let pieceOnTile = document.getElementById(pieceId);
         event.target.appendChild(pieceOnTile);
-
-        // console.log(event.target.children.length)
     }
 
     const handleDragOver = (event) => {
